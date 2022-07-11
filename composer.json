@@ -1,0 +1,20 @@
+{
+    "name": "espresso-tutorials/epub-to-html-converter",
+    "type": "library",
+    "license": "ISC",
+    "autoload": {
+        "psr-4": {
+            "EspressoTutorials\\Epub\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jonas Regner",
+            "email": "jonas.regner@espresso-tutorials.com"
+        }
+    ],
+    "require": {
+        "ext-zip": "*",
+        "ext-simplexml": "*"
+    }
+}
