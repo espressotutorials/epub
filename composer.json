@@ -1,7 +1,8 @@
 {
-    "name": "espresso-tutorials/epub-to-html-converter",
+    "name": "espresso-tutorials/php-epub",
     "type": "library",
     "license": "ISC",
+    "version": "0.1.0",
     "autoload": {
         "psr-4": {
             "EspressoTutorials\\Epub\\": "src/"
