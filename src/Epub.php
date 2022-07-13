@@ -24,7 +24,7 @@ class Epub
         }
 
         return $this->container = new Container(
-            SimpleXMLElement::fromPath($this->extractionPath . '/META-INF/container.xml')
+            $this->extractionPath . '/META-INF/container.xml',
         );
     }
 
@@ -35,7 +35,7 @@ class Epub
         }
 
         return $this->content = new Content(
-            SimpleXMLElement::fromPath($this->extractionPath . '/' . $this->container()->rootFile()->path())
+            $this->container()->rootFile()->path()
         );
     }
 

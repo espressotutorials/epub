@@ -7,13 +7,16 @@ use EspressoTutorials\Epub\Elements\ItemRef;
 
 class Content
 {
+    protected SimpleXMLElement $element;
+
     protected array $manifest = [];
 
     protected array $spine = [];
 
     public function __construct(
-        protected SimpleXMLElement $element
+        protected string $file
     ) {
+        $this->element = SimpleXMLElement::fromPath($this->file);
     }
 
     public function manifest(): array
@@ -25,7 +28,7 @@ class Content
         foreach ($this->element->manifest->item as $node) {
             $this->manifest[] = new Item(
                 (string) $node->attributes()['id'],
-                (string) $node->attributes()['href'],
+                dirname($this->file) . '/' . $node->attributes()['href'],
                 (string) $node->attributes()['media-type'],
             );
         }

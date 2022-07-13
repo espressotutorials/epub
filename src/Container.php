@@ -6,11 +6,14 @@ use EspressoTutorials\Epub\Elements\RootFile;
 
 class Container
 {
+    protected SimpleXMLElement $element;
+
     protected ?RootFile $rootFile = null;
 
     public function __construct(
-        protected SimpleXMLElement $element,
+        protected string $file,
     ) {
+        $this->element = SimpleXMLElement::fromPath($this->file);
     }
 
     public function rootFile(): RootFile
@@ -20,7 +23,7 @@ class Container
         }
 
         return $this->rootFile = new RootFile(
-            (string) $this->element->rootfiles->rootfile->attributes()['full-path']
+            dirname($this->file, 2) . '/' . (string) $this->element->rootfiles->rootfile->attributes()['full-path'],
         );
     }
 }
