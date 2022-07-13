@@ -4,8 +4,6 @@ namespace EspressoTutorials\Epub;
 
 class Epub
 {
-    protected \ZipArchive $archive;
-
     protected ?Container $container = null;
 
     protected ?Content $content = null;
@@ -41,13 +39,13 @@ class Epub
 
     public function extractTo(string $path): bool
     {
-        $this->archive = new \ZipArchive();
+        $archive = new \ZipArchive();
 
-        if (!$this->archive->open($this->path)) {
+        if (!$archive->open($this->path)) {
             return false;
         }
 
-        if (!$this->archive->extractTo($path)) {
+        if (!$archive->extractTo($path)) {
             return false;
         }
 

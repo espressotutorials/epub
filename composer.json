@@ -2,7 +2,7 @@
     "name": "espresso-tutorials/php-epub",
     "type": "library",
     "license": "ISC",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "autoload": {
         "psr-4": {
             "EspressoTutorials\\Epub\\": "src/"
